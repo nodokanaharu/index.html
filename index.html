@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<hend>
+    <meta charset="UTF-8">
+
+<link rel="stylesheet" href="css/style.css">
+    <title>能に汗をかくプログラム体験</title>
+<script src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+</script>
+</hend>
+
+<body>
+    //ブラウザ上に表示される部分のHTMLはbodyタグ内のここに記述してください。
+
+    <div id="app"　class="counter">
+        <h2>TODO List</h2>
+        
+        <form v-on:submit.prevent>
+          <input type="text" v-model="newItem"
+           placeholder="ロージーのお仕事がありません">
+          <button v-on:click="addItem">追加</button>
+          <p>{{newItem}}</p>
+        </form>
+        <p>
+            全{{todos.length}}件
+        </p>
+        <ul>
+          <li v-for="todo in todos">
+          <input type="checkbox" v-model="todo.isDone"><!--チェックボックス同期-->
+          <span v-bind:class="{done: todo.isDone}">{{todo.item}}</span><!--classの追加-->
+          <button v-on:click="deleteItem(index)">削除</button> 
+        </li>
+        </ul>
+        </div>
+<script src="js/index.js"></script>  
+<script>
+</script>
+</body>
+</html>
